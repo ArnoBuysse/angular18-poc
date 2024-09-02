@@ -4,6 +4,8 @@
 
 First, generate the Storybook configuration by running the following Nx command:
 ```bash
+yarn add storybook
+
 nx g @nx/angular:storybook-configuration [library-name]
 ```
 
