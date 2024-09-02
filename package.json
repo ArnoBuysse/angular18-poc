@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "b2b:serve": "yarn nx run b2b:serve",
     "ui:storybook": "yarn nx run ui:storybook",
     "ui:build-storybook": "yarn nx run ui:build-storybook"
   },
