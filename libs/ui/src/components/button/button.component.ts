@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'sdx-button',
+  selector: 'ui-button',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './button.component.html',
