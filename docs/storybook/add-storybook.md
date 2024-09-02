@@ -24,8 +24,6 @@ https://nx.dev/recipes/storybook/angular-storybook-compodoc
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "emitDecoratorMetadata": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true // Add this line
   },
   "exclude": ["../**/*.spec.ts"],
   "include": [
@@ -39,8 +37,31 @@ https://nx.dev/recipes/storybook/angular-storybook-compodoc
     "../src/**/*.ts" // Add this line
   ]
 }
-
 ```
+
+For the compodocArgs use:
+```json
+"compodocArgs": ["-e", "json", "-d", "libs/[library-name]"]
+```
+
+```ts
+// File: .storybook/preview.ts
+
+import { setCompodocJson } from '@storybook/addon-docs/angular';
+
+let docJson: unknown;
+try {
+  docJson = require('../documentation.json');
+} catch (error) {
+  console.warn(
+    'Compodoc documentation.json not found, will be generated at runtime.'
+  );
+  docJson = {};
+}
+
+setCompodocJson(docJson);
+```
+
 
 ## Step 4: Enable Auto Docs
 
@@ -65,6 +86,11 @@ Compodoc generates detailed documentation for your Angular components, while ena
 
 ## Step 3: Update the .gitignore
 Add the **documentation.json** to the gitignore file.
+
+```.gitignore
+# Compodoc Files
+libs/[library-name]/documentation.json
+```
 
 ## Run Storybook
 You can run Storybook for a specific library using the following command:

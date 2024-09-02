@@ -16,4 +16,11 @@ Which bundler would you like to use? • esbuild <br />
 • Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? • Yes <br />
 • Test runner to use for end to end (E2E) tests • cypress <br />
 • Which CI provider would you like to use? • skip <br />
-Would vou Like remote caching to make vour build faster?. skip <br />
+Would vou Like remote caching to make vour build faster?. skip <br /><br />
+
+
+Add lock-files to .gitignore and delete yarn.lock
+```.gitignore
+# Lock Files
+yarn.lock
+```
