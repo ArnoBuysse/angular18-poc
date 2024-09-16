@@ -10,7 +10,9 @@ nx g @nx/angular:storybook-configuration [library-name]
 ```
 
 ## Step 2: Add Compdoc
-Compodoc is a documentation tool for Angular applications. To install Compodoc, run:
+Compodoc generates detailed documentation for your Angular components, while enabling autodocs in Storybook automatically integrates this documentation into Storybook, allowing you to view up-to-date component details directly in your Storybook UI. This setup ensures your documentation is always current and easily accessible.
+
+To install Compodoc, run:
 ```bash
 yarn add @compodoc/compodoc --dev
 ```
@@ -83,10 +85,36 @@ const config: StorybookConfig = {
 };
 ```
 
-### Why use Compodoc with Storybook?
-Compodoc generates detailed documentation for your Angular components, while enabling autodocs in Storybook automatically integrates this documentation into Storybook, allowing you to view up-to-date component details directly in your Storybook UI. This setup ensures your documentation is always current and easily accessible.
+## Step 5: Setup Auto Generation of Compodoc
 
-## Step 3: Update the .gitignore
+Install nodemon: If you haven’t installed it yet, add nodemon to your project:
+```bash
+yarn add nodemon --dev
+```
+
+Update package.json: Add a watch-compodoc script to your package.json that uses nodemon to watch your source files and trigger Compodoc when changes are detected:
+```json
+"scripts": {
+    "[library-name]:watch-compodoc": "nodemon --watch 'libs/[library-name]/src/**/*.ts' --exec 'npx compodoc -p libs/[library-name]/tsconfig.json -e json -d libs/[library-name]' --ext ts"
+}
+```
+
+Run Both Storybook and Compodoc in Parallel: Now, use concurrently to run both Storybook and Compodoc watcher at the same time:
+
+First, install concurrently (if you don’t have it already):
+```bash
+yarn add concurrently --dev
+```
+
+Then, update your package.json to run both Storybook and Compodoc simultaneously and add the normal build script:
+```json
+"scripts": {
+  "[library-name]:storybook": "concurrently \"yarn nx run [library-name]:storybook\" \"yarn [library-name]:watch-compodoc\"",
+  "[library-name]:build-storybook": "yarn nx run ui:build-storybook"
+}
+```
+
+## Step 6: Update the .gitignore
 Add the **documentation.json** to the gitignore file.
 
 ```.gitignore
@@ -94,19 +122,3 @@ Add the **documentation.json** to the gitignore file.
 libs/[library-name]/documentation.json
 ```
 
-## Run Storybook
-You can run Storybook for a specific library using the following command:
-```bash
-yarn nx run [library-name]:serve:storybook 
-```
-
-To make this process easier, you can add a shortcut in your global `package.json`. For example, you could create a script called storybook for your library:
-
-```json
-"scripts": {
-  "storybook:[library-name]": "yarn nx run [library-name]:serve:storybook"
-}
-```
-
-## Know Issue
-Compodoc files are generated when you first run the Storybook command. However, if you make changes to a file, Storybook updates but the Compodoc documentation does not. To refresh the documentation, you need to stop and restart the Storybook server. We're currently exploring ways to automate this process for smoother updates.

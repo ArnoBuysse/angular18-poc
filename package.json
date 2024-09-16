@@ -4,8 +4,10 @@
   "license": "MIT",
   "scripts": {
     "b2b:serve": "yarn nx run b2b:serve",
-    "ui:storybook": "yarn nx run ui:storybook",
-    "ui:build-storybook": "yarn nx run ui:build-storybook"
+    "b2b-e2e:open-cypress": "yarn nx run b2b-e2e:open-cypress",
+    "ui:storybook": "concurrently \"yarn nx run ui:storybook\" \"yarn ui:watch-compodoc\"",
+    "ui:build-storybook": "yarn nx run ui:build-storybook",
+    "ui:watch-compodoc": "nodemon --watch 'libs/ui/src/**/*.ts' --exec 'npx compodoc -p libs/ui/tsconfig.json -e json -d libs/ui' --ext ts"
   },
   "private": true,
   "dependencies": {
@@ -65,6 +67,7 @@
     "@typescript-eslint/parser": "^7.16.0",
     "@typescript-eslint/utils": "^7.16.0",
     "autoprefixer": "^10.4.0",
+    "concurrently": "^9.0.1",
     "cypress": "^13.13.0",
     "eslint": "~8.57.0",
     "eslint-config-prettier": "^9.0.0",
@@ -74,6 +77,7 @@
     "jest-preset-angular": "~14.1.0",
     "jsonc-eslint-parser": "^2.1.0",
     "ng-packagr": "~18.2.0",
+    "nodemon": "^3.1.4",
     "nx": "19.6.4",
     "postcss": "^8.4.5",
     "postcss-url": "~10.1.3",
