@@ -50,9 +50,8 @@ export class AppModule implements DoBootstrap {
 ```
 
 ## Step 5: Remove hashing on prod build
-Here an example
+File: project.json
 ```json
-// project.json
 {
   "projects": {
     "web-app": {
@@ -74,6 +73,7 @@ Here an example
 ```bash
 yarn add fs-extra --dev
 ```
+Create a new file in the new app folder on root level: build.js
 
 ```js
 const fs = require('fs-extra');
