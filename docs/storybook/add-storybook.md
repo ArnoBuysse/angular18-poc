@@ -122,3 +122,14 @@ Add the **documentation.json** to the gitignore file.
 libs/[library-name]/documentation.json
 ```
 
+## Note
+
+Make sure to add this line when adding new storybook files for typechecking.
+
+```ts
+// Button Example
+const meta: Meta<UiButtonComponent> = {
+  component: UiButtonComponent,
+  title: 'Button',
+} satisfies Meta<typeof UiButtonComponent>; // this line
+```

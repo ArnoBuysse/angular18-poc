@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
 })
-export class ButtonComponent {
+export class UiButtonComponent {
   @Input() label: string | null = null;
   @Input() type: 'primary' | 'secondary' = 'primary';
   @Input() theme: 'dark' | 'light' = 'light';
