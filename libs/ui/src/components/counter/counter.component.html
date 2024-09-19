@@ -1,7 +1,14 @@
-@if (title()) {
-<h1>{{title()}}</h1>
+@if (title) {
+<h1 class="text-3xl font-bold text-center my-4">{{title}}</h1>
 }
+<h2 class="text-xl font-semibold my-2">Counter: {{ counter }}</h2>
 
-<h2>Counter: {{ counter }}</h2>
-<button (click)="increment()">Add</button>
-<button (click)="decrement()">Subtract</button>
+<div class="flex space-x-2">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="increment()">
+        Add
+    </button>
+
+    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="decrement()">
+        Subtract
+    </button>
+</div>

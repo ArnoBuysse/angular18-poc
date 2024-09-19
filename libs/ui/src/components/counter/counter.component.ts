@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  input,
-  output,
+  EventEmitter,
+  Input,
+  Output,
 } from '@angular/core';
 
 @Component({
@@ -15,16 +16,18 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiCounterComponent {
-  title = input<string>();
-  updateCounter = output<number>();
+  @Input() title: string | null = null;
+  @Output() updateCounter = new EventEmitter<number>();
 
   public counter = 0;
 
   public increment(): void {
-    this.updateCounter.emit(++this.counter);
+    this.counter++;
+    this.updateCounter.emit(this.counter);
   }
 
   public decrement(): void {
-    this.updateCounter.emit(--this.counter);
+    this.counter--;
+    this.updateCounter.emit(this.counter);
   }
 }
