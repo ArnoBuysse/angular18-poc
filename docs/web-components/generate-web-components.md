@@ -79,7 +79,7 @@ Create a new file in the new app folder on root level: build.js
 const fs = require('fs-extra');
 
 const buildFolderPath = './dist/apps/web-[prefix-name]/browser';
-const newFolderPath = 'dist/apps/web-[prefix-name]/custom-elements';
+const newFolderPath = 'dist/apps/web-[prefix-name]/web-components';
 const prefix = 'web-[prefix-name]';
 
 const build = async () => {
