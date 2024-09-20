@@ -10,5 +10,6 @@
     "source.organizeImports": "explicit"
   },
   "prettier.singleQuote": true,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "editor.linkedEditing": true
 }
