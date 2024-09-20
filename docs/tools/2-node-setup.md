@@ -21,6 +21,19 @@ To verify that `nvm` is installed, run:
 nvm --version
 ```
 
+If it doesn't work right of the box, then (on Mac) open the zshrc ...
+
+```bash
+nano ~/.zshrc
+```
+... and add following snippet:
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
+
 ## Step 2: Install Node
 
 Use `nvm` to install and use the latest LTS (Long Term Support) version of Node.js:
