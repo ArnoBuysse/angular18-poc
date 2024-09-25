@@ -45,6 +45,7 @@ Thumbs.db
 
 # Lock Files
 yarn.lock
+package-lock.json
 
 # Compodoc Files
 libs/ui/documentation.json
