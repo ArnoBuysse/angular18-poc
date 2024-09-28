@@ -5,6 +5,7 @@
     "firsttris.vscode-jest-runner",
     "Angular.ng-template",
     "dbaeumer.vscode-eslint",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "bradlc.vscode-tailwindcss"
   ]
 }
