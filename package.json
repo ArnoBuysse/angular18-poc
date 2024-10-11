@@ -8,7 +8,19 @@
     "ui:storybook": "concurrently \"yarn nx run ui:storybook\" \"yarn ui:watch-compodoc\"",
     "ui:build-storybook": "yarn nx run ui:build-storybook",
     "ui:watch-compodoc": "nodemon --watch 'libs/ui/src/**/*.ts' --exec 'npx compodoc -p libs/ui/tsconfig.json -e json -d libs/ui' --ext ts",
-    "ce-b2b:build": "yarn nx run ce-b2b:build --configuration=production && node apps/ce-b2b/build.js"
+    "ce-b2b:build": "yarn nx run ce-b2b:build --configuration=production && node apps/ce-b2b/build.js",
+    "all:prettier": "prettier --write .",
+    "staged:prettier": "git diff --name-only --cached --diff-filter=d | xargs prettier --write",
+    "ui:lint": "yarn ui:lint",
+    "postinstall": "npx husky init",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "prettier --write --ignore-unknown",
+      "eslint --fix"
+    ],
+    "!(**/*.{ts,tsx,js,jsx})": "prettier --write --ignore-unknown"
   },
   "private": true,
   "dependencies": {
@@ -75,10 +87,12 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-cypress": "^2.13.4",
     "fs-extra": "^11.2.0",
+    "husky": "^9.1.6",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-preset-angular": "~14.1.0",
     "jsonc-eslint-parser": "^2.1.0",
+    "lint-staged": "^15.2.10",
     "ng-packagr": "~18.2.0",
     "nodemon": "^3.1.4",
     "nx": "19.6.4",
