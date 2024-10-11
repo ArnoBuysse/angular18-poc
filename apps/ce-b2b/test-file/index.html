@@ -1,30 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-critters-container>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>ce-b2b</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="ce-b2b-styles.css" media="print" onload="this.media='all'">
+    <link
+      rel="stylesheet"
+      href="ce-b2b-styles.css"
+      media="print"
+      onload="this.media='all'"
+    />
     <noscript>
-        <link rel="stylesheet" href="ce-b2b-styles.css">
+      <link rel="stylesheet" href="ce-b2b-styles.css" />
     </noscript>
-</head>
+  </head>
 
-<body>
+  <body>
     <ce-ui-counter id="counter" title="test"></ce-ui-counter>
 
     <script>
-        const counterElement = document.getElementById('counter');
+      const counterElement = document.getElementById('counter');
 
-        counterElement.addEventListener('updateCounter', (event) => {
-            console.log('Counter updated to:', event.detail);
-        });
+      counterElement.addEventListener('updateCounter', (event) => {
+        console.log('Counter updated to:', event.detail);
+      });
     </script>
     <script src="ce-b2b-polyfills.js" type="module"></script>
     <script src="ce-b2b-main.js" type="module"></script>
-</body>
-
+  </body>
 </html>

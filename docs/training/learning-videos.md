@@ -1,4 +1,5 @@
 ## Learning Videos
+
 **Package Manager** <br>
 Yarn: https://www.youtube.com/watch?v=0DGClZD5LEM (3min 37s)<br>
 
@@ -16,7 +17,7 @@ SASS (scss): https://www.youtube.com/watch?v=akDIJa0AP5c (2min 30s)<br>
 Tailwind: https://www.youtube.com/watch?v=mr15Xzb1Ook (2min 20s)<br>
 
 **Documentation & Workbook** <br>
-Compodoc: 
+Compodoc:
 Storybook: https://www.youtube.com/watch?v=gdlTFPebzAU (2min 18s)<br>
 
 **E2E & Probings** <br>

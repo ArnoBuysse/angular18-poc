@@ -3,7 +3,7 @@
   "editor.formatOnSaveMode": "modifications",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
@@ -11,5 +11,7 @@
   },
   "prettier.singleQuote": true,
   "git.autofetch": true,
-  "editor.linkedEditing": true
+  "editor.linkedEditing": true,
+  "tailwindCSS.suggestions": true,
+  "tailwindCSS.validate": true
 }

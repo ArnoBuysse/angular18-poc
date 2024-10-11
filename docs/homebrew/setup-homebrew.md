@@ -3,11 +3,13 @@ https://www.youtube.com/watch?v=P9nFjQFNAqA
 https://docs.brew.sh/Manpage#autoupdate-subcommand-interval-options
 
 Step 1: Install Homebrew
+
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 Step 2: Install Autoupdate
+
 ```bash
 brew tap homebrew/autoupdate
 

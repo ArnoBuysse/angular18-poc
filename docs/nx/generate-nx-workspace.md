@@ -1,12 +1,12 @@
-#  Generate Nx Workspace
+# Generate Nx Workspace
 
 Official Guide: https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial
 
 ```bash
 npx create-nx-workspace@latest repo-name --packageManager=yarn
 ```
-**Hint:** Replace `repo-name` with your desired repository name.
 
+**Hint:** Replace `repo-name` with your desired repository name.
 
 • Which stack do you want to use? • angular <br />
 • Integrated monorepo, or standalone project? • integrated <br />
@@ -18,8 +18,8 @@ Which bundler would you like to use? • esbuild <br />
 • Which CI provider would you like to use? • skip <br />
 Would vou Like remote caching to make vour build faster?. skip <br /><br />
 
-
 Add lock-files to .gitignore and delete yarn.lock
+
 ```.gitignore
 # Lock Files
 yarn.lock

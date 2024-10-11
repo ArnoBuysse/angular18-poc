@@ -1,6 +1,7 @@
-# Node Setup 
+# Node Setup
 
 ## Step 1: Install `nvm` (Node Version Manager)
+
 `nvm` allows you to easily switch between multiple versions of Node.js.
 
 ### Installation
@@ -26,13 +27,13 @@ If it doesn't work right of the box, then (on Mac) open the zshrc ...
 ```bash
 nano ~/.zshrc
 ```
+
 ... and add following snippet:
 
 ```bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
-
 
 ## Step 2: Install Node
 

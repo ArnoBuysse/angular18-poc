@@ -1,9 +1,10 @@
-#  Generate Web Components
+# Generate Web Components
 
 https://buddy.works/tutorials/building-web-components-with-angular <br />
 https://angular.dev/guide/elements
 
 ## Step 1: Install Angular Elements
+
 ```bash
 yarn add @angular/elements
 ```
@@ -13,7 +14,7 @@ yarn add @angular/elements
 https://nx.dev/nx-api/angular/generators/application
 
 ```bash
-nx g @nx/angular:application web-[prefix-name] --bundler=esbuild --directory=apps --routing=false --standalone=false --addTailwind=true --e2eTestRunner=none --inlineStyle=true --inlineTemplate=true --minimal=true --projectNameAndRootFormat=derived --style=scss --skipTests=true --ssr=false --unitTestRunner=none 
+nx g @nx/angular:application web-[prefix-name] --bundler=esbuild --directory=apps --routing=false --standalone=false --addTailwind=true --e2eTestRunner=none --inlineStyle=true --inlineTemplate=true --minimal=true --projectNameAndRootFormat=derived --style=scss --skipTests=true --ssr=false --unitTestRunner=none
 ```
 
 ## Step 3: Move generated files
@@ -21,7 +22,6 @@ nx g @nx/angular:application web-[prefix-name] --bundler=esbuild --directory=app
 Move the 'app.module.ts' one folder up to 'src' and then delete the 'app' folder. Make sure to update the import in main.ts to use the new AppModule path.
 
 ## Step 4: Update the app.module.ts
-
 
 ```ts
 import { DoBootstrap, Injector, NgModule } from '@angular/core';
@@ -34,8 +34,7 @@ import { UiCounterComponent } from '@poc/ui';
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {
-
-    // example code 
+    // example code
     const counterElement = createCustomElement(UiCounterComponent, {
       injector: this.injector,
     });
@@ -50,7 +49,9 @@ export class AppModule implements DoBootstrap {
 ```
 
 ## Step 5: Remove hashing on prod build
+
 File: project.json
+
 ```json
 {
   "projects": {
@@ -70,9 +71,11 @@ File: project.json
 ```
 
 ## Step 6: Create a build script
+
 ```bash
 yarn add fs-extra --dev
 ```
+
 Create a new file in the new app folder on root level: build.js
 
 ```js
@@ -83,11 +86,7 @@ const newFolderPath = 'dist/apps/web-[prefix-name]/web-components';
 const prefix = 'web-[prefix-name]';
 
 const build = async () => {
-  const files = [
-    `${buildFolderPath}/polyfills.js`,
-    `${buildFolderPath}/main.js`,
-    `${buildFolderPath}/styles.css`,
-  ];
+  const files = [`${buildFolderPath}/polyfills.js`, `${buildFolderPath}/main.js`, `${buildFolderPath}/styles.css`];
 
   await fs.ensureDir(`${newFolderPath}`);
 
@@ -103,6 +102,7 @@ build();
 ```
 
 Add the build script to the package.json.
+
 ```json
 {
   "scripts": {
@@ -120,35 +120,33 @@ npm install -g serve
 Copy all files to a folder where you would like to test it including an html that looks something like this
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-critters-container>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>web-components</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="web-[prefix-name]-styles.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="web-[prefix-name]-styles.css" media="print" onload="this.media='all'" />
     <noscript>
-        <link rel="stylesheet" href="web-[prefix-name]-styles.css">
+      <link rel="stylesheet" href="web-[prefix-name]-styles.css" />
     </noscript>
-</head>
+  </head>
 
-<body>
+  <body>
     <web-ui-counter id="counter" title="test"></web-ui-counter>
 
     <script>
-        const counterElement = document.getElementById('counter');
+      const counterElement = document.getElementById('counter');
 
-        counterElement.addEventListener('updateCounter', (event) => {
-            console.log('Counter updated to:', event.detail);
-        });
+      counterElement.addEventListener('updateCounter', (event) => {
+        console.log('Counter updated to:', event.detail);
+      });
     </script>
     <script src="web-[prefix-name]-polyfills.js" type="module"></script>
     <script src="web-[prefix-name]-main.js" type="module"></script>
-</body>
-
+  </body>
 </html>
 ```
 
