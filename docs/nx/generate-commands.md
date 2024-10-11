@@ -7,7 +7,7 @@ https://nx.dev/nx-api/angular/generators/component
 ### Step 1: Generate files
 
 ```bash
-nx g @nx/angular:component [library-name]-[component-name] --project=[library-name] --directory=libs/ui/src/components --standalone --style=scss --skipTests --changeDetection=OnPush --displayBlock=true
+nx g @nx/angular:component [component-name] --project=[library-name] --directory=libs/ui/src/components --standalone --style=scss --skipTests --changeDetection=OnPush --displayBlock=true
 
 nx g @nx/angular:stories --project=[library-name]
 ```
