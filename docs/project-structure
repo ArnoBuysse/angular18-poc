@@ -1,0 +1,52 @@
+
+
+apps/
+    webc-gwt/
+    emb-gwt/
+    gwt/
+
+e2e/
+    prod/
+        src/gwt
+            some-test.prod.e2e-spec.ts
+    vega/
+        src/gwt
+    dev/
+        src/gwt
+    local/
+        src/gwt
+    probing/
+        src/gwt
+    page-object/
+        gwt/src/some-po-name/
+            some-po-name.po.ts
+
+libs/
+    http-endpoint/
+        src/http-customer/
+            http-customer.service.ts
+            http-customer.reducer.ts
+            http-customer.effect.ts
+            http-customer.action.ts
+            models - request (req) & response (res)
+            index.ts
+        index.ts
+    ui-kit/
+    gwt/
+        containers/
+            some-widget-container.component.ts
+        ui/
+            some-widget.component.ts
+        models/
+            something.ts
+        store/
+            src/ui/
+             /some-feature or page store
+                blabla.action.ts
+                blabla.effect.ts
+                blabla.reducer.ts
+                blabla.selector.ts
+    webc-gwt
+    
+
+prod-e2e is one buildable, at pipeline tests can be filtered

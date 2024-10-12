@@ -12,7 +12,7 @@
     "all:prettier": "prettier --write .",
     "staged:prettier": "git diff --name-only --cached --diff-filter=d | xargs prettier --write",
     "ui:lint": "yarn ui:lint",
-    "postinstall": "npx husky init",
+    "postinstall": "npx husky",
     "prepare": "husky"
   },
   "lint-staged": {
